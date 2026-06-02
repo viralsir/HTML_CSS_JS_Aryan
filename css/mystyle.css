@@ -1,0 +1,16 @@
+h1{
+  text-align: center;
+  color:yellow;
+  background-color: red;
+
+}
+#first{
+  color:white;
+  background-color:  teal;
+  text-align: right;
+}
+.second{
+  color:maroon;
+  background-color: lightgray;
+  text-align: left;
+}
