@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Switch Demo</title>
+</head>
+<body>
+
+No1: <input type="number" id="no1" > <br/><br/>
+No2: <input type="number" id="no2" > <br/><br/>
+Symbol : <select id="symbol">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+<br/><br/>
+<input type="button" value="Answer" id="answerbtn">
+<input type="reset" value="clear">
+
+<h1 id="output"></h1>
+
+<script>
+  document.getElementById("answerbtn").onclick = () =>{
+
+    let no1=parseInt(document.getElementById("no1").value);
+    let no2=parseInt(document.getElementById("no2").value);
+    let symbol=document.getElementById("symbol").value;
+
+    switch(symbol)
+    {
+      case "+":
+        document.getElementById("output").innerHTML="Answer :"+ (no1+no2);
+      break;
+      case "-":
+        document.getElementById("output").innerHTML="Answer :"+ (no1-no2);
+      break;
+      case "*":
+        document.getElementById("output").innerHTML="Answer :"+ (no1*no2);
+      break;
+      case "/":
+          document.getElementById("output").innerHTML="Answer :"+ (no1/no2);
+      break;
+      default:
+            document.getElementById("output").innerHTML="Wrong option selected";
+      break;
+
+    }
+
+
+
+
+
+
+
+
+
+
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>java script demo4</title>
+</head>
+<body>
+User Name : <input type="text" id="username">
+<input type="button" id="greetbtn" value="greet">
+
+<h1 id="output"></h1>
+
+<script>
+
+
+  document.getElementById("greetbtn").onclick = function () {
+
+    var name=document.getElementById('username').value;
+    document.getElementById('output').innerHTML="Welcome "+ name;
+
+  };
+
+</script>
+
+</body>
+</html>
