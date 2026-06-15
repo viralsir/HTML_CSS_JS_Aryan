@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+      table{
+        border:2px solid black;
+       border-collapse: collapse;
+       margin-left: 50px;
+      }
+      th, td {
+        border: 2px solid black;
+        padding: 8px;
+
+      }
+  </style>
+</head>
+<body>
+<div class="row" >
+  <!-- student Form --->
+  <div class="col" style="text-align: right;">
+    <form action="">
+      <table >
+         <tr>
+           <th colspan="2" style="text-align: center;"> Student Info</th>
+         </tr>
+          <tr>
+            <th> Roll No:</th>
+            <td><input type="number" id="rollno" class="form-control" min="1"></td>
+          </tr>
+          <tr>
+            <th> Name :</th>
+            <td><input type="text" id="name" class="form-control"></td>
+          </tr>
+           <tr>
+             <th> Maths :</th>
+             <td><input type="number" id="maths" class="form-control" min="1" max="100" onfocusout="validate_maths()"> <b id="maths_error" style="color:red"></b> </td>
+           </tr>
+           <tr>
+             <th> English :</th>
+             <td><input type="number" id="english" class="form-control" min="1" max="100" onfocusout="validate_english()"><b id="english_error" style="color:red"></b></td>
+           </tr>
+          <tr >
+            <td colspan="2" style="text-align: center;"><input type="button" class="btn-outline-primary btn" value="save" onclick="savedata()"> <input type="reset" class="btn btn-outline-danger" value="clear"> </td>
+          </tr>
+      </table>
+    </form>
+
+  </div>
+
+  <!-- student View -->
+  <div class="col">
+       <h1> Student Details </h1>
+       <ul>
+         <li>Roll No:<b id="output_rollno"></b></li>
+         <li>Stuent Name: <b id="output_name">  </b> </li>
+         <li>Maths Mark: <b id="output_maths"></b></li>
+         <li>English Mark: <b id="output_english"></b></li>
+
+
+       </ul>
+         <h5 id="output_status"></h5>
+  </div>
+
+
+</div>
+
+
+<script >
+           function validate_maths()
+           {
+                 let maths=parseInt(document.getElementById("maths").value);
+                 if (maths<0 || maths>100)
+                 {
+                      document.getElementById("maths_error").innerHTML = "Marksh should be between 1 and 100";
+                      document.getElementById("maths").style.borderColor = "red";
+                 }
+                 else
+                 {
+                   document.getElementById("maths_error").innerHTML = "";
+                   document.getElementById("maths").style.borderColor = "black";
+                 }
+
+           }
+
+
+           function validate_english()
+           {
+             let maths=parseInt(document.getElementById("english").value);
+             if(maths<0 || maths>100)
+             {
+               document.getElementById("english_error").innerHTML = "Marksh should be between 1 and 100";
+             }
+             else
+             {
+               document.getElementById("english_error").innerHTML = "";
+             }
+
+           }
+
+
+
+           function savedata()
+         {
+             let rollno= parseInt(document.getElementById("rollno").value);
+             let name=document.getElementById("name").value;
+             let maths= parseInt(document.getElementById("maths").value);
+             let english= parseInt(document.getElementById("english").value);
+
+
+
+
+               document.getElementById("output_rollno").innerHTML=rollno;
+               document.getElementById("output_name").innerHTML=name;
+               document.getElementById("output_maths").innerHTML=maths;
+               document.getElementById("output_english").innerHTML=english;
+
+               if(maths>=35 && english>=35)
+               {
+                 let total=maths+english;
+                 let avg= total/2;
+                 //document.getElementById("output_status").innerHTML="Pass <br> Total : "+ total +" <br> Avg :"+avg;
+                 document.getElementById("output_status").innerHTML=`Pass <br> Total : ${total} <br> Avg : ${avg}`;
+                 document.getElementById("output_status").style.color="green";
+
+               }
+               else
+               {
+                 document.getElementById("output_status").innerHTML="Fail";
+                 document.getElementById("output_status").style.color="red";
+               }
+
+
+               document.getElementById("rollno").value="";
+               document.getElementById("name").value="";
+               document.getElementById("maths").value="";
+               document.getElementById("english").value="";
+
+
+
+
+
+         }
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
