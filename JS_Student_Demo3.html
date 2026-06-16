@@ -5,24 +5,15 @@
   <title>Title</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <style>
-      table{
-        border:2px solid black;
-       border-collapse: collapse;
-       margin-left: 50px;
-      }
-      th, td {
-        border: 2px solid black;
-        padding: 8px;
 
-      }
   </style>
 </head>
 <body>
 <div class="row" >
   <!-- student Form --->
-  <div class="col" style="text-align: right;">
+  <div class="col-4" style="text-align: right;">
     <form action="">
-      <table >
+      <table class="table table-bordered">
          <tr>
            <th colspan="2" style="text-align: center;"> Student Info</th>
          </tr>
@@ -51,17 +42,17 @@
   </div>
 
   <!-- student View -->
-  <div class="col">
-       <h1> Student Details </h1>
-       <ul>
-         <li>Roll No:<b id="output_rollno"></b></li>
-         <li>Stuent Name: <b id="output_name">  </b> </li>
-         <li>Maths Mark: <b id="output_maths"></b></li>
-         <li>English Mark: <b id="output_english"></b></li>
+  <div class="col-8 text-center" style="align:left;" >
+            <table id="studentlisttable" class="table table-striped table-bordered">
+                <tr>
+                  <th colspan="7"  class="text-center"> Student List </th>
+                </tr>
+                 <tr>
+                   <th> Roll No</th> <th>Name</th> <th> Maths</th> <th>English</th> <th>Status</th> <th>Total </th> <th>Avg</th>
+                 </tr>
 
+            </table>
 
-       </ul>
-         <h5 id="output_status"></h5>
   </div>
 
 
@@ -109,30 +100,59 @@
              let maths= parseInt(document.getElementById("maths").value);
              let english= parseInt(document.getElementById("english").value);
 
-               document.getElementById("output_rollno").innerHTML=rollno;
-               document.getElementById("output_name").innerHTML=name;
-               document.getElementById("output_maths").innerHTML=maths;
-               document.getElementById("output_english").innerHTML=english;
+             let tr=document.createElement("tr");
+             let td_rollno=document.createElement("td");
+             let td_name=document.createElement("td");
+             let td_maths=document.createElement("td");
+             let td_english=document.createElement("td");
+             let td_pass_fail=document.createElement("td");
+             let td_total=document.createElement("td");
+             let td_avg=document.createElement("td");
+
+
+             td_rollno.innerHTML=rollno;
+             td_name.innerHTML=name;
+             td_maths.innerHTML=maths;
+             td_english.innerHTML=english;
 
                if(maths>=35 && english>=35)
                {
                  let total=maths+english;
                  let avg= total/2;
-                 //document.getElementById("output_status").innerHTML="Pass <br> Total : "+ total +" <br> Avg :"+avg;
-                 document.getElementById("output_status").innerHTML=`Pass <br> Total : ${total} <br> Avg : ${avg}`;
-                 document.getElementById("output_status").style.color="green";
+                 td_pass_fail.innerHTML="Pass";
+                 td_pass_fail.style.color="green";
+                 td_total.innerHTML=total;
+                 td_avg.innerHTML=avg;
 
                }
                else
                {
-                 document.getElementById("output_status").innerHTML="Fail";
-                 document.getElementById("output_status").style.color="red";
+                 td_pass_fail.innerHTML="Fail";
+                 td_pass_fail.style.color="red";
+                 td_total.innerHTML="-";
+                 td_avg.innerHTML="-";
+
                }
+
+               tr.append(td_rollno);
+               tr.append(td_name);
+               tr.append(td_maths);
+               tr.append(td_english);
+               tr.append(td_pass_fail);
+               tr.append(td_total);
+               tr.append(td_avg);
+
+               let table=document.getElementById("studentlisttable");
+               table.append(tr);
 
                document.getElementById("rollno").value="";
                document.getElementById("name").value="";
                document.getElementById("maths").value="";
                document.getElementById("english").value="";
+
+
+
+
 
          }
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>todo list</title>
+</head>
+<body>
+<input type="text" id="task" /> <input type="button" id="taskbtn" value="add task" onclick="addTask()" />
+<h1> Task List</h1>
+<ul id="output">
+
+</ul>
+
+ <table>
+   <tr>
+     <th>rollno</th>
+     <th>Name</th>
+     <th>Maths</th>
+   </tr>
+   <tr>
+     <td>1</td>
+     <td>vimal</td>
+     <td>10</td>
+   </tr>
+ </table>
+
+<script>
+
+   function addTask()
+   {
+      let task=document.getElementById("task").value;
+      let ul=document.getElementById("output");
+      let li=document.createElement('li');   // <li> </li>
+         li.innerHTML=task;   // <li>task value </li>
+      ul.append(li);
+      document.getElementById("task").value="";
+
+
+   }
+
+</script>
+
+</body>
+</html>
