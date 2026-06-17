@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ArrayDemo</title>
+
+  <script>
+           let array1=[34,"Vimal",44,55.435,66.55];
+           console.log(array1[0]);
+           console.log(array1[1]);
+           array1[2]="Amit";
+           console.log(array1);
+           array1.push(56.546);
+           console.log(array1);
+           console.log("======");
+           for (let i = 0; i < array1.length; i++)
+           {
+             console.log(array1[i]);
+           }
+           console.log("======for of ====");
+           for (let value of array1) {
+             console.log(value);
+
+           }
+           console.log("======");
+           for (let index in array1) {
+             console.log(array1[index]);
+           }
+
+           console.log("======");
+           console.log(array1.at(3));
+
+           array1.pop()
+           console.log(array1);
+           array1.pop(34);
+           console.log(array1);
+           console.log(array1.slice(2,5));
+           let  maths_marks=[34,4,55,66,78,5,77];
+           let pass_marks=maths_marks.filter(element => (element>34))
+           console.log(maths_marks.filter(element => (element>34)));
+           console.log(pass_marks);
+           for (let value of maths_marks) {
+                if(value >34) {
+                  pass_marks.push(value);
+                }
+           }
+              let twodiarray=[[34,44],[45,55]]
+           console.log(twodiarray);
+           console.log(twodiarray[0]);
+           console.log(twodiarray[0][0]);
+
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>

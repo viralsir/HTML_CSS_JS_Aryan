@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>json demo</title>
+  <script>
+        //java script object notation
+        //  let person={"id":23,"name":"Amit","phone":9812312345};
+        //   console.log(person['name']);
+        //   console.log(person['phone']);
+        //   console.log(person['id']);
+        // let person={}
+        //   person['name']="Rajan";
+        // console.log(person);
+        //  person['name'] = 'vijay';
+        //  person['age']=12;
+        //  person['gender'] = 'Male';
+        //  person['Maths'] = 33;
+        //  //person["phone"]=[9812345334,7812312345];
+        //  person["phone"]={"home":9812312345,"Office":7812312345}
+        //  console.log(person);
+        //  console.log(person["phone"]);
+        //  console.log(person["phone"]["home"]);
+        //
+
+        let persons=[ {"id":1,"name":"Amit","maths":44} , {"id":2,"name":"Viren","maths":44} , {"id":3,"name":"viken","maths":44} ];
+        console.log(persons[0]);
+        console.log(persons[0]["name"]);
+        console.log(persons[1]["name"]);
+
+        persons.push({"id":4,"name":"Vijay","maths":44});
+
+        for (let element of persons)
+        {
+          console.log(element);
+            for (let key in element) {
+              console.log(key, element[key]);
+            }
+            console.log("==========");
+        }
+
+
+
+
+  </script>
+
+
+</head>
+<body>
+
+</body>
+</html>
