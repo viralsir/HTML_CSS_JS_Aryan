@@ -18,7 +18,9 @@ function viewdata()
                          td.innerHTML = student[key];
                          tr.append(td);
                     }
-
+                  let td = document.createElement("td");
+                  td.innerHTML = "<input type=button class='btn btn-danger' value='delete'>";
+                   tr.append(td);
               table.append(tr);
         }
 
